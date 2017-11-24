@@ -34,6 +34,14 @@
 		</div>
 	</div>
 
+ @if(Session::has('message'))
+            <div class="six wide column">
+            <div class="alert1">
+                {{ Session::get('message') }}
+            </div>
+            </div>
+            @endif
+
 	  		
 
 <div class="isi">
@@ -54,7 +62,7 @@
 				</div>
 				@endif
 				<div class="ui fluid left icon input">
-						  <input type="text" name="username" placeholder="Username">
+						  <input type="text" name="username" placeholder="Nama Pengguna">
 						  <i class="user icon"></i>
 						</div>
 						</div>
@@ -67,12 +75,12 @@
 				</div>
 				@endif
 				<div class="ui fluid left icon input">
-						  <input type="password" name="password" placeholder="Password" >
+						  <input type="password" name="password" placeholder="Kata Sandi" >
 						  <i class="lock icon"></i>
 						</div>
 		    </div>
 		    <div class="login-item">
-		    	<button class="fluid ui gray button" style="height: 50px;">Login</button>
+		    	<button class="fluid ui gray button" style="height: 50px;">Masuk</button>
 		    </div>
   		</form>
 	</div>
@@ -91,7 +99,16 @@
 
 
 
+    <script src="{{ URL::asset('/js/jquery-1.12.4.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ URL::asset('/js/wow.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ URL::asset('/js/materialize.min.js') }}" type="text/javascript"></script> 
 
+<script type="text/javascript">
+    
+            new WOW().init();
+         $('.alert1').delay(2400).fadeOut(500)
+
+</script>
 
 
 

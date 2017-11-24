@@ -33,6 +33,11 @@
                     <p><div class="tulisan3"><div class="t3"><span class="pu">KUALITAS</span> <span class="ku"> TELUR</span></div></div></p>
                 </div>
                 
+            <div class="two wide column">
+                    <a href="/pengguna">
+                    <button class="ui inverted red button" style="margin-right: 30px;">kembali</button>
+                    </a>
+                </div>
             </div>
 
 
@@ -55,21 +60,31 @@
             </div>
             </div>
 
+            @if(Session::has('message'))
+            <div class="six wide column">
+            <div class="alert1">
+                {{ Session::get('message') }}
+            </div>
+            </div>
+            @endif
 
-<div id="menu-kondisi1" style="margin-top: -50px;">
+
+<div id="menu-kondisi1" style="margin-top: -100px;">
             
                 <div class="ui grid">
                 <div class="two wide column">
                     </div>
-                    <div class="six wide column">
-                        
+                    <div class="six wide column" style="margin-top: -5px">
                             <p style="margin-bottom: 30px;">
-                            <span class=tx-input1><span class="ku">JUMLAH</span><span class="pu"> BEBEK</span></span></p>
+                            <span class=tx-input1><span class="ku">JENIS</span><span class="pu"> BEBEK</span></span></p><br>
+                            <p style="margin-bottom: 30px;">
+                            <span class=tx-input1><span class="ku">Jumlah</span><span class="pu"> Bebek</span></span></p><br>
                             <p style="margin-bottom: 30px;">
                             <span class=tx-input1><span class="ku">Harga</span><span class="pu"> Jual /telur</span></span></p>
                     </div>
-                    <div class="four wide column" >
-                            <p style="margin-bottom: 30px;"><span class=tx-input1><span class="pu">:</span></span></p>
+                    <div class="four wide column" style="margin-top: -5px" >
+                            <p style="margin-bottom: 30px;"><span class=tx-input1><span class="pu">:</span></span></p><br>
+                            <p style="margin-bottom: 30px;"><span class=tx-input1><span class="pu">:</span></span></p><br>
                             <p style="margin-bottom: 30px;"><span class=tx-input1><span class="pu">:</span></span></p>
                     </div>
 
@@ -79,7 +94,20 @@
                             <form action="{{url('jumlahhargabebek')}}" method="post">
                                 {{csrf_field()}}
                                 <div class="fkondisi">
-                                            <div class="ui right labeled input" style="margin-bottom: 25px;">
+
+
+                                    <select id="jenisbebek" name="jenisbebek" class="ui fluid dropdown" required="">
+                                    <option value="">- Pilih Jenis Bebek -</option>
+                                    <option value="B1">Bebek Petelur Tegal</option>
+                                    <option value="B2">Bebek Petelur Alabio</option>
+                                    <option value="B3">Bebek Petelur Mojosari</option>
+                                    </select>
+                                    
+                                    <br><br>  
+                                    
+
+
+                                            <div class="ui right labeled input" style="margin-bottom: 45px;">
                                         <input placeholder="Jumlah Bebek" type="number" name="jumlahbebek" value="">
                                         <div class="ui basic label">
                                             Ekor
@@ -88,7 +116,7 @@
                                     <span class="ku">  <span style="color: red;">*</span>yang dimiliki</span>
                                     
 
-                                    <div class="ui right labeled input" style="margin-bottom: 25px;">
+                                    <div class="ui right labeled input" style="margin-bottom: 45px;">
                                         <input placeholder="Harga Telur" type="number" name="harga" value="">
                                         <div class="ui basic label" style="width: 58px;">
                                             Rp.
@@ -102,7 +130,7 @@
                         </div>
 
                     </div>
-                    <div class="next1">
+                    <div class="next1" style="margin-top: -60px;">
                     <br>
                     <br>
                                 <button class="ui red animated button" tabindex="0">
@@ -118,7 +146,7 @@
 
 
 
-                    <footer>
+       <footer>
       <div class="versi">
         Salted Egg Pro
       </div>
@@ -126,6 +154,25 @@
         Kelompok5C
       </div>
     </footer>
+
+<script type="text/javascript">
+                    $('.ui.dropdown')
+                    .dropdown()
+                    ;
+                    </script>
+
+    <script src="{{ URL::asset('/js/jquery-1.12.4.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ URL::asset('/js/wow.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ URL::asset('/js/materialize.min.js') }}" type="text/javascript"></script> 
+
+<script type="text/javascript">
+    
+            new WOW().init();
+         $('.alert1').delay(2400).fadeOut(500)
+
+</script>
+
+        
 
 
 

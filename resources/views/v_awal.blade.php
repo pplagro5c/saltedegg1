@@ -24,9 +24,9 @@
 <div class="menuawal" style="margin-top: 300px">
 		<div class="ui grid">
 			<div class="eight wide column">
-			<a href="{{URL('masuk')}}"> <img class="menu111" src="{{ URL::asset('image/login.png') }}"></a>
+			<a href="{{URL('masuk')}}"> <img class="menu111" id="mode7" src="{{ URL::asset('image/masuk.png') }}"></a>
 			</div>
-			<div class="eight wide column"><a href="{{URL('daftar')}}"> <img class="menu222" src="{{ URL::asset('image/register.png') }}"></a></div>
+			<div class="eight wide column"><a href="{{URL('daftar')}}"> <img class="menu222" id="mode7" src="{{ URL::asset('image/daftar.png') }}"></a></div>
 		</div>
 	</div>
 	</div>

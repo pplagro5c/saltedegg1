@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\m_telurasin;
 use App\m_pengguna;
-use App\m_analisa;
 use App\m_telurbebek;
-use App\m_analisatelurbebek;
 use Carbon\Carbon;
 use App\Http\Requests\telurbebekRequest;
 use App\Http\Requests\telurasinRequest;
@@ -20,6 +18,7 @@ class c_pengguna extends Controller
         $pengguna = m_pengguna::find($request->session()->get('id')); 
         return view('v_homePengguna',compact('pengguna'));
     }
+
 
     public function ShowTelurAsin()
     {
@@ -160,7 +159,7 @@ class c_pengguna extends Controller
 
 
     public function simpanTA(Request $request){
-        $telurasin = new m_analisa();
+        $telurasin = new m_telurasin();
         $telurasin->id_pemakai = $request->session()->get('id'); 
         $telurasin->jumlahtelur = $request->session()->get('jumlahtelur');
         $telurasin->kualitas = $request->session()->get('kualitas');
@@ -181,18 +180,28 @@ class c_pengguna extends Controller
 
 
 
-
+public function ShowTelurBebek()
+    {
+        return view('v_telurbebek');
+    }
 
 
     public function simpanjumlahhargabebek(Request $request){
+        if ($request->jumlahbebek <= 0 ) {
+            return redirect('analisTelurBebek')->with('message', 'Gagal. Data tidak valid');
+        }elseif ($request->harga <= 0 ) {
+            return redirect('analisTelurBebek')->with('message', 'Gagal. Data tidak valid');
+        }else{
+        $request->session()->put('jenisbebek',$request->jenisbebek);
         $request->session()->put('jumlahbebek',$request->jumlahbebek);
         $request->session()->put('harga',$request->harga);
         return view('v_pilihtelurbebek');
 }
+}
 
 
     public function hasilTB(Request $request){
-        $request->session()->put('jenisbebek',$request->jenisbebek);
+        
         $request->session()->put('umurbebek',$request->umurbebek);
         $request->session()->put('pakanbebek',$request->pakanbebek);
         $request->session()->put('vitaminbebek',$request->vitaminbebek);
@@ -202,9 +211,6 @@ class c_pengguna extends Controller
         
 
         
-
-
-
         //jumlahtelur
             if ($request->session()->get('jenisbebek')=='B1') {
                 $request->session()->put('hasiltelur',($request->session()->get('jumlahbebek')*63));
@@ -216,7 +222,7 @@ class c_pengguna extends Controller
                 $request->session()->put('hasiltelur',($request->session()->get('jumlahbebek')*51));  
             }
 
-        //kualitas
+      
             
 
 
@@ -225,64 +231,173 @@ class c_pengguna extends Controller
 
         //bobot
             if ($request->session()->get('jenisbebek')=='B1') {
-                $jenisbebek = 11.11;
+                $jenisbebek = 18.33;
+
+                if ($request->session()->get('umurbebek')=='U1') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U2') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U3') {
+                    $umurbebek = 16.5;
+                }else{
+                    $umurbebek = 0;
+                }
+
+                if ($request->session()->get('pakanbebek')=='P1') {
+                    $pakanbebek = 20;
+                }elseif ($request->session()->get('pakanbebek')=='P2') {
+                    $pakanbebek = 20;
+                }elseif ($request->session()->get('pakanbebek')=='P3') {
+                    $pakanbebek = 10;
+                }else{
+                    $pakanbebek = 0;
+                }
+
+                if ($request->session()->get('vitaminbebek')=='V1') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V2') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V3') {
+                    $vitaminbebek = 7;
+                }else{
+                    $vitaminbebek = 0;
+                }
+
+                if ($request->session()->get('kelembapan')=='K1') {
+                    $kelembapan = 3.83;
+                }elseif ($request->session()->get('kelembapan')=='K2') {
+                    $kelembapan = 11.5;
+                }elseif ($request->session()->get('kelembapan')=='K3') {
+                    $kelembapan = 11.5;
+                }else{
+                    $kelembapan = 0;
+                }
+
+                if ($request->session()->get('suhu')=='S1') {
+                    $suhu = 7;
+                }elseif ($request->session()->get('suhu')=='S2') {
+                    $suhu = 10.5;
+                }elseif ($request->session()->get('suhu')=='S3') {
+                    $suhu = 3.5;
+                }else{
+                    $suhu = 0;
+                }
+
             }elseif ($request->session()->get('jenisbebek')=='B2') {
-                $jenisbebek = 16.67;
-            }elseif ($request->session()->get('jenisbebek')=='B3') {
-                $jenisbebek = 5.56;
-            }else{
-                $jenisbebek = 0;
+                $jenisbebek = 27.5;
+
+                if ($request->session()->get('umurbebek')=='U1') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U2') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U3') {
+                    $umurbebek = 16.5;
+                }else{
+                    $umurbebek = 0;
+                }
+
+                if ($request->session()->get('pakanbebek')=='P1') {
+                    $pakanbebek = 10;
+                }elseif ($request->session()->get('pakanbebek')=='P2') {
+                    $pakanbebek = 20;
+                }elseif ($request->session()->get('pakanbebek')=='P3') {
+                    $pakanbebek = 20;
+                }else{
+                    $pakanbebek = 0;
+                }
+
+                if ($request->session()->get('vitaminbebek')=='V1') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V2') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V3') {
+                    $vitaminbebek = 7;
+                }else{
+                    $vitaminbebek = 0;
+                }
+
+                if ($request->session()->get('kelembapan')=='K1') {
+                    $kelembapan = 3.83;
+                }elseif ($request->session()->get('kelembapan')=='K2') {
+                    $kelembapan = 11.5;
+                }elseif ($request->session()->get('kelembapan')=='K3') {
+                    $kelembapan = 7.67;
+                }else{
+                    $kelembapan = 0;
+                }
+
+                if ($request->session()->get('suhu')=='S1') {
+                    $suhu = 3.5;
+                }elseif ($request->session()->get('suhu')=='S2') {
+                    $suhu = 10.5;
+                }elseif ($request->session()->get('suhu')=='S3') {
+                    $suhu = 3.5;
+                }else{
+                    $suhu = 0;
+                }
+
+            }else {
+                $jenisbebek=9.17;
+
+                if ($request->session()->get('umurbebek')=='U1') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U2') {
+                    $umurbebek = 5.5;
+                }elseif ($request->session()->get('umurbebek')=='U3') {
+                    $umurbebek = 16.5;
+                }else{
+                    $umurbebek = 0;
+                }
+
+                if ($request->session()->get('pakanbebek')=='P1') {
+                    $pakanbebek = 20;
+                }elseif ($request->session()->get('pakanbebek')=='P2') {
+                    $pakanbebek = 20;
+                }elseif ($request->session()->get('pakanbebek')=='P3') {
+                    $pakanbebek = 10;
+                }else{
+                    $pakanbebek = 0;
+                }
+
+                if ($request->session()->get('vitaminbebek')=='V1') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V2') {
+                    $vitaminbebek = 14;
+                }elseif ($request->session()->get('vitaminbebek')=='V3') {
+                    $vitaminbebek = 7;
+                }else{
+                    $vitaminbebek = 0;
+                }
+
+                if ($request->session()->get('kelembapan')=='K1') {
+                    $kelembapan = 3.83;
+                }elseif ($request->session()->get('kelembapan')=='K2') {
+                    $kelembapan = 11.5;
+                }elseif ($request->session()->get('kelembapan')=='K3') {
+                    $kelembapan = 7.67;
+                }else{
+                    $kelembapan = 0;
+                }
+
+                if ($request->session()->get('suhu')=='S1') {
+                    $suhu = 3.5;
+                }elseif ($request->session()->get('suhu')=='S2') {
+                    $suhu = 10.5;
+                }elseif ($request->session()->get('suhu')=='S3') {
+                    $suhu = 7;
+                }else{
+                    $suhu = 0;
+                }
+
             }
 
-            if ($request->session()->get('umurbebek')=='U1') {
-                $umurbebek = 5.56;
-            }elseif ($request->session()->get('umurbebek')=='U2') {
-                $umurbebek = 16.67;
-            }elseif ($request->session()->get('umurbebek')=='U3') {
-                $umurbebek = 11.11;
-            }else{
-                $umurbebek = 0;
-            }
 
-            if ($request->session()->get('pakanbebek')=='P1') {
-                $pakanbebek = 16.67;
-            }elseif ($request->session()->get('pakanbebek')=='P2') {
-                $pakanbebek = 8.33;
-            }elseif ($request->session()->get('pakanbebek')=='P3') {
-                $pakanbebek = 8.33;
-            }else{
-                $pakanbebek = 0;
-            }
 
-            if ($request->session()->get('vitaminbebek')=='V1') {
-                $vitaminbebek = 16.67;
-            }elseif ($request->session()->get('vitaminbebek')=='V2') {
-                $vitaminbebek = 16.67;
-            }elseif ($request->session()->get('vitaminbebek')=='V3') {
-                $vitaminbebek = 8.33;
-            }else{
-                $vitaminbebek = 0;
-            }
 
-            if ($request->session()->get('kelembapan')=='K1') {
-                $kelembapan = 5.56;
-            }elseif ($request->session()->get('kelembapan')=='K2') {
-                $kelembapan = 16.67;
-            }elseif ($request->session()->get('kelembapan')=='K3') {
-                $kelembapan = 11.11;
-            }else{
-                $kelembapan = 0;
-            }
 
-            if ($request->session()->get('suhu')=='S1') {
-                $suhu = 5.56;
-            }elseif ($request->session()->get('suhu')=='S2') {
-                $suhu = 11.11;
-            }elseif ($request->session()->get('suhu')=='S3') {
-                $suhu = 16.67;
-            }else{
-                $suhu = 0;
-            }
+
+
+
 
 
         $total=$jenisbebek+$umurbebek+$pakanbebek+$vitaminbebek+$kelembapan+$suhu;
@@ -292,7 +407,7 @@ class c_pengguna extends Controller
         $request->session()->put('totalpenjualan',$penjualan);//penjualan
 
         
-
+    //kualitas
             if($request->session()->get('totalbobot')>0 && $request->session()->get('totalbobot')<51 )  {
                     $request->session()->put('hasilkualitas','Buruk');
             }elseif ($request->session()->get('totalbobot')>50 && $request->session()->get('totalbobot')<81)  {
@@ -309,7 +424,7 @@ class c_pengguna extends Controller
 
 
     public function simpanTB(Request $request){
-        $telurbebek = new m_analisatelurbebek();
+        $telurbebek = new m_telurbebek();
         $telurbebek->id_pakai = $request->session()->get('id'); 
         $telurbebek->jumlahbebek = $request->session()->get('jumlahbebek');
         $telurbebek->harga = $request->session()->get('harga');

@@ -29,7 +29,7 @@
 
 	  <div class="two wide column">
 	  <a href="/masuk">
-	  <button class="fluid ui inverted red button" style="margin-right: 30px;margin-top: 50px;">Logout</button>
+	  <button class="fluid ui inverted red button" style="margin-right: 30px;margin-top: 50px;">Keluar</button>
 	  			</a>
 	  </div>
 	</div>
@@ -45,27 +45,37 @@
 	
 	<div class="menuawal1">
 		<div class="ui grid">
-			<div class="eight wide column">
-			<a href="{{URL('rekaptelurasin')}}"> <img class="menu11" id="mode6" src="{{ URL::asset('image/rekap.png') }}"></a>
+			<div class="five wide column">
+			<a href="{{URL('rekaptelurbebek')}}"> <img class="menu11" id="mode6" src="{{ URL::asset('image/rekap.png') }}"></a>
 			</div>
-			<div class="eight wide column"><a href="{{URL('dataPengguna')}}"> <img id="mode6" class="menu22" src="{{ URL::asset('image/user1.png') }}"></a></div>
+			<div class="five wide column">
+			<a href="{{URL('rekaptelurasin')}}"> <img class="menu33" id="mode6" src="{{ URL::asset('image/rekapasin.png') }}"></a>
+			</div>
+			<div class="five wide column"><a href="{{URL('dataPengguna')}}"> <img id="mode6" class="menu22" src="{{ URL::asset('image/user1.png') }}"></a></div>
 		</div>
 	</div>
 	<div class="tmenu">
 		<div class="ui grid">
-			<div class="six wide column"></div>
-				<div class="one wide column"">
+		<div class="six wide column" ></div>
+				<div class="two wide column" style="margin-left: -185px;">
 				<div class="tmenu1"><span class="pu">Data</span></div>
-				<div class="tmenu1 ku2">HasilRekap</div>
+				<div class="tmenu1"> <span class="ku2">Rekap Telur Bebek</span></div>
 				</div>
 			<div class="one wide column"></div>
-			<div class="four wide column">
-				<div class="tmenu2"><span class="pu">Data</span><br><span class="ku2">Pengguna</span></div>
+				<div class="two wide column" style="margin-left: 39px;">
+				<div class="tmenu1"><span class="pu">Data</span></div>
+				<div class="tmenu1"> <span class="ku2">Rekap Telur Asin</span></div>
+				</div>
+			<div class="one wide column"></div>
+			<div class="four wide column" style="margin-left: -45px;">
+				<div class="tmenu1"><span class="pu">Data</span><br><span class="ku2">Pengguna</span></div>
 			</div>
 			<div class="five wide column"></a></div>
 		</div>
 	</div>
 </div>
+</div>
+
 
 	<footer>
       <div class="versi">

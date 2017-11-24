@@ -17,7 +17,8 @@
 } );
     </script>
 </head>
-<body>
+
+<body style="margin-bottom: 350px;">
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <img id="background" src="{{ URL::asset('image/background3.jpg') }}">
@@ -30,7 +31,7 @@
 	  		<div class="two wide column">
 	  		</div>
 	  		<div class="six wide column" style=" margin-top: 5vh; margin-left: 125px;">
-	  		<p><div class="trekap" style="font-family: 'Oswald', sans-serif;"><div class="t3"><span class="ku2">DATA</span> <span class="ku"> pengguna</span></div></div></p>
+	  		<p><div class="trekap" style="font-family: 'Oswald', sans-serif;"><div class="t3"><span class="ku2">DATA</span> <span class="ku"> Telur Bebek</span></div></div></p>
 	  		</div><div class="one wide column"></div>
 	  		<div class="two wide column">
 	  			<a href="/dash">
@@ -44,65 +45,75 @@
 
 
 
-		
-
-
-
-	<div class="menu-rekap" style="margin-top: 50px; margin-right: -550px;">
+	<div class="menu-rekap" style="margin-top: 50px; margin-right: -700px;">
 		<div class="ui grid">
-	  		<div class="ten wide column" style="margin-left: 90px;">	
+	  		<div class="ten wide column" style="margin-left: 50px;">	
 				<table class="ui  striped  table" id="pengguna" >
 				  <thead style="text-align: center;">
 				    <tr >
-				      <th >No pengguna</th>
-				      <th >Nama</th>
-				      <th >Alamat</th>
-				      <th >Umur</th>
-				      <th >No Telepon</th>
-				      <th >Aksi</th>
+				      <th  rowspan="2">No</th>
+				      <th  rowspan="2">Tanggal</th>
+				      <th  rowspan="2">Nama</th>
+				      <th  rowspan="2">Jenis Bebek</th>
+				      <th  rowspan="2">Jumlah Bebek</th>
+				      <th  rowspan="2">Harga/telur</th>
+				      <th  rowspan="2">Umur Bebek</th>
+				      <th  rowspan="2">Pakan Bebek</th>
+				      <th  rowspan="2">Vitamin</th>
+				      <th  rowspan="2">Kelembapan</th>
+				      <th  rowspan="2">Suhu</th>
+				      <th  colspan="3">Hasil</th>
+				      <th  rowspan="2">Aksi</th>
 				    </tr>
-				  </thead>
-				  <tbody style="text-align: center;">
-				  <?php $no=1; ?>
-					@foreach($penggunas as $penggunas)
-						<tr>
-							<td>{{$no++}}</td>
-							<td>{{$penggunas->nama}}</td>
-							<td>{{$penggunas->alamat}}</td>
-							<td>{{$penggunas->umur}}</td>
-							<td>{{$penggunas->no_telepon}}</td>
-							<td>
-							<form method="POST" action="/hapuspengguna/{{$penggunas->id_pengguna}}" accept-charset="UTF-8">
+				 <tr>
+			    	<th>Jumlah Telur/3bln</th>
+			    	<th>Total Penjualn</th>
+			    	<th>Kualitas Telur</th>
+			    </tr>
+
+			</thead>
+			  <tbody style="text-align: center;">
+			  <?php $no=1; ?>
+			  @foreach($telurbebeks as $telurbebeks)
+			    <tr>
+			    	<th>{{$no++}}</th>
+			    	<td>{{ Carbon\Carbon::parse($telurbebeks->tanggalpakai)->format('d-m-Y ') }}</td>
+				    <td>{{$telurbebeks->pakai->nama}}</td>
+				    <td>{{$telurbebeks->jenisbebek}}</td>
+				    <td>{{$telurbebeks->jumlahbebek}} ekor</td>
+				    <td>Rp. {{$telurbebeks->harga}}</td>
+				    <td>{{$telurbebeks->umurbebek}}</td>
+				    <td>{{$telurbebeks->pakanbebek}}</td>
+				    <td>{{$telurbebeks->vitaminbebek}}</td>
+				    <td>{{$telurbebeks->kelembapan}}</td>
+				    <td>{{$telurbebeks->suhu}}</td>
+				    <td>{{$telurbebeks->hasiltelur}}</td>
+				    <td>{{$telurbebeks->totalpenjualan}}</td>
+				    <td>{{$telurbebeks->hasilkualitas}}</td>
+				    <td>
+				    	<form method="POST" action="/hapustelurbebek/{{$telurbebeks->id_telurbebek}}" accept-charset="UTF-8">
 				                <input name="_method" type="hidden" value="DELETE">
 				                <input name="_token" type="hidden" value="{{ csrf_token() }}">
 							    		<input onclick="return confirm('Anda yakin akan menghapus data ini ?');" type="submit" class="ui red button" tabindex="0" value="Hapus"
 										/> 
 				            </form>
-					    </td>
-				    </tr>
-				    @endforeach
-				    </tbody>
-				</table>
- 
+				    </td>
+			    </tr>
+			    @endforeach
+			 </tbody>
+			</table>
 			</div>
-
-
-		<footer>
-      <div class="versi">
-        Salted Egg Pro
-      </div>
-      <div class="for">
-        Kelompok5C
-      </div>
-	</footer>
+	  		<div class="one wide column"></div>
+	  	</div>
+	</div>	
 
 
 
 
 
-	
-	  		
-</body>
-		
 
-</html>
+
+
+
+	</body>
+	</html>

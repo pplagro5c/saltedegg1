@@ -58,7 +58,7 @@
                     <div class="four wide column">
                         <p style="margin-bottom: 33px;"><span class=tx-input><span class="ku">> Jumlah Garam</span>
                             <br><br></p>
-                        <p style="margin-bottom: 33px;"><span class=tx-input><span class="ku">> Bubuk Baru Bata</span>
+                        <p style="margin-bottom: 33px;"><span class=tx-input><span class="ku">> Bubuk Batu Bata</span>
                             <br><br></p>
                         <p style="margin-bottom: 33px;"><span class=tx-input><span class="ku">> Jumlah air</span>
                             <br><br></p>

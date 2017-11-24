@@ -35,7 +35,7 @@
                       <button id="myBtn" class="ui inverted olive button">Profil</button>
                       
                       <a href="/masuk">
-                      <button class="ui inverted red button">Logout</button>
+                      <button class="ui inverted red button">Keluar</button>
                       </a>
                 </div>
 
@@ -63,15 +63,36 @@
 
 			<div class="menuuser">
 				<div class="ui grid">
-					<div class="five wide column"><a href="{{URL ('/telurbebek') }}"> <img class="menu1" id="mode6" src="{{ URL::asset('image/icontelurbebek.png') }}"></a></div>
+					<div class="five wide column"><a href="{{URL ('analisTelurBebek') }}"> <img class="menu1" id="mode6" src="{{ URL::asset('image/icontelurbebek.png') }}"></a></div>
 
 					<div class="five wide column"><a href="{{ URL ('analisTelurAsin') }}"> <img class="menu2" id="mode6" src="{{ URL::asset('image/icontelurasin.png') }}"></a></div>
 
-					<div class="five wide column"><a href="{{ URL::asset('riwayat') }}"> <img class="menu3" id="mode6" src="{{ URL::asset('image/edituser.png') }}"></a></div>
+					<div class="five wide column"><a href="{{ URL ('/info') }}"> <img class="menu3" id="mode6" src="{{ URL::asset('image/info.png') }}"></a></div>
 
 				</div>
 			</div>
 			</div>
+			<div class="tmenu" style="margin-top: 20px;">
+		<div class="ui grid">
+		<div class="six wide column" ></div>
+				<div class="two wide column" style="margin-left: -143px;">
+				
+				<div class="tmenu1"> <span class="ku2">Simulasi Telur Bebek</span></div>
+				</div>
+			<div class="one wide column"></div>
+				<div class="two wide column" style="margin-left: -10px;">
+				
+				<div class="tmenu1"> <span class="ku2">Simulasi Telur Asin</span></div>
+				</div>
+			<div class="one wide column"></div>
+			<div class="four wide column" style="margin-left: -100px;">
+				<div class="tmenu1"><span class="ku2">Informasi</span></div>
+			</div>
+			<div class="five wide column"></a></div>
+		</div>
+	</div>
+</div>
+</div>
 			
 
 		<footer>
@@ -121,7 +142,7 @@
 		  <input placeholder="Masukkan umur" type="text" name="umur" value="{{$pengguna->umur}}" required="">
 		  <i class="user icon"></i> 
 		</div><br>
-		Password<br>
+		Kata Sandi :<br>
 		<div class="ui fluid left icon input">
 		  <input placeholder="Masukkan password" type="text" name="password" value="{{$pengguna->password}}" required="">
 		  <i class="users icon"></i>

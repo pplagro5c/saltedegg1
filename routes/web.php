@@ -22,8 +22,11 @@ Route::get('/dash', function () {
 Route::get('/home', function () {
     return view('v_homePengguna');
 });
-Route::get('/telurbebek', function () {
-    return view('v_telurbebek');
+Route::get('/info', function () {
+    return view('v_infoPengguna');
+});
+Route::get('/info2', function () {
+    return view('v_infoPengguna2');
 });
 
 
@@ -36,9 +39,11 @@ Route::get('Ketua','c_admin@index');
 Route::get('laporanAnalisis','c_admin@showLaporanAnalisis');
 Route::get('dataPengguna','c_admin@showDatapengguna');
 Route::get('rekaptelurasin','c_admin@showRekapTA');
+Route::get('rekaptelurbebek','c_admin@showRekapTB');
 Route::post('Anggota','c_admin@tambahPengguna');
 Route::delete('hapuspengguna/{id_pengguna}','c_admin@hapuspengguna');
 Route::delete('hapustelurasin/{id_telurasin}','c_admin@hapustelurasin');
+Route::delete('hapustelurbebek/{id_telurbebek}','c_admin@hapustelurbebek');
 //Anggota
 Route::post('profil','c_pengguna@ubahProfil');
 Route::get('pengguna','c_pengguna@index');
@@ -63,7 +68,7 @@ Route::get('simpanTelurAsin','c_pengguna@simpanTA');
 
 
 //telur bebek
-
+Route::get('analisTelurBebek','c_pengguna@ShowTelurBebek');
 Route::post('jumlahhargabebek','c_pengguna@simpanjumlahhargabebek');
 Route::post('kualitasTelurBebek','c_pengguna@hasilTB');
 Route::get('simpanTelurBebek','c_pengguna@simpanTB');

@@ -17,7 +17,8 @@
 } );
     </script>
 </head>
-<body>
+
+<body style="margin-bottom: 350px;">
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <img id="background" src="{{ URL::asset('image/background3.jpg') }}">
@@ -41,6 +42,7 @@
 	  		</div>
 	  	</div>
 	</div>	
+
 
 
 	<div class="menu-rekap" style="margin-top: 50px; margin-right: -550px;">
@@ -94,6 +96,7 @@
 	  		<div class="one wide column"></div>
 	  	</div>
 	</div>	
+
 
 
 

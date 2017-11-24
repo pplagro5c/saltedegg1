@@ -13,11 +13,11 @@ class c_login extends Controller
     {
         $pengguna = m_pengguna::where('username',$request->username)->first(); 
         if (count($pengguna)==0) {
-            $request->session()->put('alertUsername','Username dan Password Tidak Sesuai');
+            $request->session()->put('alertUsername','Nama Pengguna dan Kata Sandi Tidak Sesuai');
             return view('v_login');
         } else {
             if ($request->password != $pengguna->password) {
-                $request->session()->put('alertPassword','Masukkan Password Anda');
+                $request->session()->put('alertPassword','Masukkan Kata Sandi Anda');
                 return view('v_login');
             } else {
                 $request->session()->forget('alertUsername');
@@ -33,23 +33,23 @@ class c_login extends Controller
         }
     }
 
-    public function logout(request $request)
-    {
-        $request->session()->forget('alertUsername');
-        $request->session()->forget('alertPassword');
-        $request->session()->forget('id');
-        $request->session()->forget('luasLahan');
-        $request->session()->forget('umurPadi');
-        $request->session()->forget('kadarK');
-        $request->session()->forget('kadarP');
-        $request->session()->forget('kadarN');
-        $request->session()->forget('ph');
-        $request->session()->forget('urea');
-        $request->session()->forget('za');
-        $request->session()->forget('sp36');
-        $request->session()->forget('KCLN');
-        $request->session()->forget('KCLJ');
-        return view('masuk');
-    }
+    // public function logout(request $request)
+    // {
+    //     $request->session()->forget('alertUsername');
+    //     $request->session()->forget('alertPassword');
+    //     $request->session()->forget('id');
+    //     $request->session()->forget('luasLahan');
+    //     $request->session()->forget('umurPadi');
+    //     $request->session()->forget('kadarK');
+    //     $request->session()->forget('kadarP');
+    //     $request->session()->forget('kadarN');
+    //     $request->session()->forget('ph');
+    //     $request->session()->forget('urea');
+    //     $request->session()->forget('za');
+    //     $request->session()->forget('sp36');
+    //     $request->session()->forget('KCLN');
+    //     $request->session()->forget('KCLJ');
+    //     return view('masuk');
+    // }
 
 }

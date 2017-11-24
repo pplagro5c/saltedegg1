@@ -11,5 +11,5 @@ class m_telurbebek extends Model
        public function pakai(){
 	return $this->belongsTo(m_pengguna::class,'id_pakai');
 	}
-	
+	public $timestamps = false;
 }

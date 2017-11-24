@@ -11,5 +11,5 @@ class m_telurasin extends Model
        public function pemakai(){
 	return $this->belongsTo(m_pengguna::class,'id_pemakai');
 	}
-	
+	public $timestamps = false;
 }

@@ -32,22 +32,22 @@
 					<div class="ilogo3"><img class="ilogo4" src="{{ URL::asset('image/icontelur.png') }}" style="margin-left: -55px;"></div>
 					<p><div class="tulisan3"><div class="t3"><span class="pu">KUALITAS</span> <span class="ku"> TELUR</span></div></div></p>
 				</div>
-				<div class="two wide column">
+				</div>
+				<!-- <div class="two wide column">
 					<a href="/pengguna">
 					<button class="ui inverted red button" style="margin-right: 30px;">kembali</button>
 					</a>
 				</div>
-			</div>
+			</div> -->
 
 
-			<div id="menu-kondisi">
+			<div id="menu-kondisi" >
 			
 				<div class="ui grid">
 				<div class="two wide column">
 					</div>
 					<div class="six wide column">
-						<p style="margin-bottom: 35px;"><span class=tx-input><span class="ku">- Jenis Bebek</span>
-							<br><br></p>
+					
 						<p style="margin-bottom: 35px;"><span class=tx-input><span class="ku">- Umur Bebek</span>
 							<br><br></p>
 						<p style="margin-bottom: 35px;"><span class=tx-input><span class="ku">- Vitamin Bebek</span>
@@ -61,7 +61,7 @@
 						
 						
 					<div class="four wide column" >
-							<p style="margin-bottom: 35px;"><span class=tx-input><span class="pu">:</span></span><br><br></p>
+							
 							<p style="margin-bottom: 35px;"><span class=tx-input><span class="pu">:</span></span><br><br></p>
 							<p style="margin-bottom: 35px;"><span class=tx-input><span class="pu">:</span></span><br><br></p>
 							<p style="margin-bottom: 35px;"><span class=tx-input><span class="pu">:</span></span><br><br></p>
@@ -75,17 +75,6 @@
 								<div class="fkondisi" >
 
 
-									<select id="jenisbebek" name="jenisbebek" class="ui fluid dropdown" required="">
-		  							<option value="">- Pilih Jenis Bebek -</option>
-		  							<option value="B1">Bebek Petelur Tegal</option>
-		  							<option value="B2">Bebek Petelur Alabio</option>
-		  							<option value="B3">Bebek Petelur Mojosari</option>
-		  							</select>
-  									
-									
-
-
-									<br><br>
 									
 									<select id="jumurbebek" name="umurbebek" class="ui fluid dropdown" required="">
 		  							<option value="">- Pilih Umur Bebek -</option>
@@ -122,7 +111,7 @@
 		  							<option value="">- Pilih Suhu Kandang -</option>
 		  							<option value="S1">Dibawah Suhu 27 Derajat Celcius</option>
 		  							<option value="S2">Kisaran Suhu 27-39 Derajat Celcius</option>
-		  							<option value="S3">Suhu 39 Derajat Celcius</option>
+		  							<option value="S3">Suhu Diatas 39 Derajat Celcius</option>
 		  							</select>
 
 		  							<br><br>
@@ -152,14 +141,7 @@
 		    </form>
 		    
 
-<footer>
-      <div class="versi">
-        Salted Egg Pro
-      </div>
-      <div class="for">
-        Kelompok5C
-      </div>
-	</footer>
+
 
 					<script type="text/javascript">
 					$('.ui.dropdown')
